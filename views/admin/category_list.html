@@ -1,0 +1,30 @@
+{% extends './layout.html' %}
+{% block header %}
+  分类列表
+{% endblock %}
+{% block content %}
+<a href="/category/add" class="btn btn-primary btn-add">新增分类</a>
+<table class="table table-striped">
+  <tr>
+  	<td>id</td>
+  	<td>分类名称</td>
+  	<td>排序</td>
+  	<td>操作</td>
+  </tr>
+  {% for category in categories %}
+	 <tr>
+		<td>{{ category._id.toString() }}</td>
+		<td>{{ category.name }}</td>
+		<td>{{ category.order }}</td>
+		<td>
+			<a href="/category/edit/{{ category._id.toString() }}">编辑</a>
+			<a href="/category/delete/{{ category._id.toString() }}">删除</a>
+		</td>
+	</tr>
+  {% endfor %}
+
+</table>
+{% if pages > 1 %}
+{% include './pagination.html' %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends './layout.html' %}
+{% block header %}
+  操作失败
+{% endblock %}
+{% block content %}
+<div class="alert alert-danger" role="alert">
+	{{ message }}
+</div>
+<a href="javascript:window.history.back();">返回</a>
+{% endblock %}
